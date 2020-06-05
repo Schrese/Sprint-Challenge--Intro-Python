@@ -68,9 +68,24 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-def new_age(x):
-    return x + 5
-g = [(h.name.upper(), h.age+5) for h in humans]
+# def new_age(x):
+#     return x + 5
+# def Copying(person):
+#     new_humanz = []
+#     someone_else = someone.upper()
+#     another_age = someage + 5
+#     new_humanz.append(person)
+#     return new_humanz
+
+def CopyName(someone):
+    new_name = someone.name.upper()
+    return new_name
+
+def CopyAge(oldy):
+    new_age = oldy.age + 5
+    return new_age
+
+g = [Human(CopyName(h.name), CopyAge(h.age)) for h in humans]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
