@@ -78,11 +78,11 @@ print("All names uppercase:")
 #     return new_humanz
 
 def CopyName(someone):
-    new_name = someone.name.upper()
+    new_name = someone.upper()
     return new_name
 
 def CopyAge(oldy):
-    new_age = oldy.age + 5
+    new_age = oldy + 5
     return new_age
 
 g = [Human(CopyName(h.name), CopyAge(h.age)) for h in humans]
