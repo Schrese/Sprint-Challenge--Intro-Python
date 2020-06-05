@@ -21,6 +21,8 @@ class City:
       self.name = name
       self.lat = lat
       self.lon = lon
+    def __repr__(self):
+      return "City('%s', %f, %f)" % (self.name, float(self.lat),float(self.lon))
 
 cities = []
 
@@ -29,14 +31,39 @@ def cityreader(cities=[]):
   # For each city record, create a new City instance and add it to the 
   # `cities` list
   with open('cities.csv', 'r') as f:
-  # reading = f.readlines()
     reading = csv.DictReader(f)
     for row in reading:
-      # print(row['city'], row['lat'], row['lng'])
-      cities.append(City(row['city'], row['lat'], row['lng']))
-      # ind = City(row['city'], row['lat'], row['lng'])
-      # print(ind)
-  return cities
+      # cities.append(City(row['city'],row['lat'], row['lng']))
+      city = City(row['city'],row['lat'], row['lng'])
+      # print(city)
+    
+    return cities
+
+  
+
+cityreader(cities)
+
+# Print the list of cities (name, lat, lon), 1 record per line.
+# 
+for c in cities:
+ print(c)
+  # print("City(%s, %f, %f),\n" % (c.name, float(c.lat), float(c.lon)))
+
+# def getName(somewhere):
+#   new_where = somewhere
+#   return new_where
+
+# def getlat(teral):
+#   new_lat = teral
+#   return new_lat 
+
+# def getlon(gitude):
+#   new_lon = gitude
+#   return new_lon
+
+# g = [City(getName(c.name), getlat(c.lat), getlon(c.lon)) for c in cities]
+# print(g) 
+
 
 # with open('cities.csv', 'r') as f:
 #   # reading = f.readlines()
@@ -44,13 +71,8 @@ def cityreader(cities=[]):
 #   for row in reading:
 #     print(row['city'], row['lat'], row['lng'])
 #     # print(f"{row}")
-#   # print(r.read())  
+#   # print(r.read())
 
-cityreader(cities)
-
-# Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-  print((c.name, float(c.lat), float(c.lon)))
 
 # STRETCH GOAL!
 #
